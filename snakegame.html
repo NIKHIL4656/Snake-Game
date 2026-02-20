@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Snake Game - Skins</title>
+  <link rel="stylesheet" href="snakegame.css">
+</head>
+<body data-theme="dark">
+  <h1>🐍 Snake Game</h1>
+  <div class="info-bar">
+    <span>Score: <span id="score">0</span></span>
+    <span id="difficultyDisplay">Mode: -</span>
+    <span id="bestDisplay">Best: 0</span>
+  </div>
+
+  <div id="gameWrapper">
+    <canvas id="game"></canvas>
+    <div id="controls">
+      <button id="pauseBtn" class="control-btn" title="Pause/Resume (Space/Esc)">⏸️</button>
+      <button id="menuBtn" class="control-btn" title="Toggle Pause Menu">📋</button>
+      <button id="themeBtn" class="control-btn" title="Theme (Shift)">🌓</button>
+    </div>
+  </div>
+
+  <!-- Start Menu -->
+  <div class="overlay" id="startMenu">
+    <div class="menu-box">
+      <h2>🎮 Start</h2>
+      <div class="row">
+        <label for="skinSelectStart">Skin</label>
+        <select id="skinSelectStart">
+          <option value="classic">Classic</option>
+          <option value="neon">Neon</option>
+          <option value="lava">Lava</option>
+          <option value="ice">Ice</option>
+          <option value="zebra">Zebra</option>
+          <option value="rainbow">Rainbow</option>
+          <option value="glass">Glass</option>
+        </select>
+      </div>
+      <p style="margin: 6px 0 12px;">Choose Difficulty</p>
+      <button onclick="startGame('easy')">🐢 Easy</button>
+      <button onclick="startGame('medium')">⚡ Medium</button>
+      <button onclick="startGame('hard')">🔥 Hard</button>
+      <button onclick="showScreen('scores')">📊 High Scores</button>
+      <button onclick="showScreen('info')">ℹ️ How to Play</button>
+    </div>
+  </div>
+
+  <!-- Pause Menu -->
+  <div class="overlay" id="pauseMenu">
+    <div class="menu-box">
+      <h2>⏸️ Paused</h2>
+      <div class="row">
+        <label for="skinSelectPause">Skin</label>
+        <select id="skinSelectPause">
+          <option value="classic">Classic</option>
+          <option value="neon">Neon</option>
+          <option value="lava">Lava</option>
+          <option value="ice">Ice</option>
+          <option value="zebra">Zebra</option>
+          <option value="rainbow">Rainbow</option>
+          <option value="glass">Glass</option>
+        </select>
+      </div>
+      <p>Mode: <span id="pausedDifficulty">-</span></p>
+      <button onclick="resumeGame()">▶️ Resume</button>
+      <button onclick="restartGame()">🔄 Restart</button>
+      <button onclick="toMainMenu()">🏠 Main Menu</button>
+    </div>
+  </div>
+
+  <!-- Game Over -->
+  <div class="overlay" id="gameOverScreen">
+    <div class="menu-box">
+      <h2>💀 Game Over</h2>
+      <p style="font-size: 1.3rem; margin: 14px 0;">Score: <span id="finalScore">0</span></p>
+      <button onclick="restartGame()">🔄 Play Again</button>
+      <button onclick="showScreen('menu')">🏠 Main Menu</button>
+    </div>
+  </div>
+
+  <!-- Scores -->
+  <div class="overlay" id="scoresScreen">
+    <div class="menu-box">
+      <h2>🏆 High Scores</h2>
+      <ol id="scoreList" class="score-list"></ol>
+      <button onclick="showScreen('menu')">🔙 Back</button>
+    </div>
+  </div>
+
+  <!-- Info -->
+  <div class="overlay" id="infoScreen">
+    <div class="menu-box">
+      <h2>ℹ️ How to Play</h2>
+      <div style="text-align: left; margin: 16px 0;">
+        <p>Eat food to grow and score points.</p>
+        <p>Use arrow keys to move without reversing direction instantly.</p>
+        <p>Press Space or Esc to pause and open the pause menu.</p>
+        <p>Press Shift or the theme button to toggle theme.</p>
+        <p>Avoid walls and your own body to survive.</p>
+      </div>
+      <button onclick="showScreen('menu')">🔙 Back</button>
+    </div>
+  </div>
+
+  <script src="snakegame.js"></script>
+</body>
+</html>
